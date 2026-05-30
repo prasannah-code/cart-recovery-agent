@@ -63,7 +63,7 @@ export async function createCodeFix(input: {
 export async function getCodeFix(id: string, merchantId: string) {
   const rows = await query<CodeFix>(
     `
-    SELECT *
+    SELECT cf.*
     FROM code_fixes cf
     JOIN diagnostics d ON d.id = cf.diagnostic_id
     WHERE cf.id = $1
